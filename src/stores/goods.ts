@@ -13,6 +13,8 @@ export const goodsStore = defineStore({
       linePriceShow:true, // 划线价格显示
       goodsTagShow:true, // 商品角标显示
       marketTagShow:true, // 活动角标显示
+      cornerStyle:2,  // 边角样式：1-直角，2-圆角
+      cornerRadius:8, // 圆角半径
     }
   },
   getters: {

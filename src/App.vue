@@ -25,7 +25,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 @import '@/assets/base.css';
 
 #app {
-  max-width: 1280px;
+  max-width: 1480px;
   margin: 0 auto;
 
   font-weight: normal;
@@ -87,28 +87,32 @@ nav a:first-of-type {
 
   #app {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 3fr;
     padding: 0 .48rem;
   }
 
   header {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
   }
 
   header .wrapper {
     display: flex;
-    place-items: flex-start;
+    place-items: center;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
   .logo {
-    margin: 0 .48rem 0 0;
+    margin-bottom: .48rem;
   }
 
   nav {
-    text-align: left;
+    text-align: center;
     margin-left: .28rem;
     font-size: .28rem;
 

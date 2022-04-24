@@ -134,6 +134,7 @@ const slideChangeEnd = () =>{
   box-sizing: border-box;
 }
 .main-container{
+  min-width: 680px;
   width: 100%;
   display: flex;
   justify-items: center;
