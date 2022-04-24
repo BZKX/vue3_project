@@ -1,6 +1,6 @@
 <template>
   <div class="goods-card-container">
-    <div class="goods-box">
+    <div class="goods-box" :style="{'border-radius': goodsConfig.cornerStyle === 1 ?'0':goodsConfig.cornerRadius + 'px'}">
       <div class="goods-img-container">
         <div v-show="goodsConfig.goodsTagShow" class="tag">{{ goodsItem.tag }}</div>
       </div>
