@@ -18,18 +18,20 @@
         <div class="bar"></div>
         <div class="bar"></div>
       </div>
+      <div class="list-container">
+        <ComponentHeader></ComponentHeader>
         <div
           class="goods-container"
           :style="{
             'grid-column-gap':itemConfig.space/50+'rem',
-          }"
-        >
+          }">
           <GoodsCard v-for="(item,index) in goodsList"
                      :key="index"
                      :goodsItem="item"
                      :goodsConfig="itemConfig"
           ></GoodsCard>
         </div>
+      </div>
     </swiper-slide>
   </swiper>
 </template>
@@ -37,6 +39,7 @@
 <script setup lang="ts">
 import GoodsCard from '@/components/GoodsCard/index.vue';
 import EditList from '@/components/GoodsCard/editList.vue';
+import ComponentHeader from '@/components/ComponentHeader/index.vue';
 import {reactive, ref} from "vue";
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -106,10 +109,10 @@ const itemConfig = goodsStore()
 
 let useSwiper: { slideTo: (arg0: number) => void; };
 let iconClose = ref(false);
-const onSwiper = (swiper) => {
+const onSwiper = (swiper: { slideTo: (arg0: number) => void; }) => {
   useSwiper = swiper;
 }
-const openMenu = (e) =>{
+const openMenu = () =>{
   if (iconClose.value){
     useSwiper.slideTo(1)
   }else{
@@ -140,23 +143,29 @@ const slideChangeEnd = () =>{
   justify-items: center;
   justify-content: center;
   position: relative;
-}
-.goods-container{
-  width: 7.5rem;
-  height: 100%;
-  padding:.28rem;
-  box-sizing: border-box;
-  background-color: #DCDEE0;
-  display: grid;
-  grid-row-gap:.28rem;
-  grid-column-gap: .28rem;
-  justify-content: center;
-  justify-items: stretch;
-  align-items: stretch;
-  grid-template-columns: repeat(2,1fr);
-  grid-auto-rows: max-content;
-}
 
+  .list-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #FAFAFA;
+
+    .goods-container{
+      flex: 1;
+      width: 7.5rem;
+      height: 100%;
+      padding: 0 .24rem .28rem;
+      box-sizing: border-box;
+      display: grid;
+      grid-row-gap:.28rem;
+      grid-column-gap: .28rem;
+      justify-content: center;
+      justify-items: stretch;
+      align-items: stretch;
+      grid-template-columns: repeat(2,1fr);
+      grid-auto-rows: max-content;
+    }
+  }
+}
 
 .menu {
   min-width: 100px;

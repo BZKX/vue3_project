@@ -17,17 +17,34 @@
       <PreviewPrice
         :priceShow="goodsConfig.priceShow"
         :linePriceShow="goodsConfig.linePriceShow"
-        :price="props.goodsItem.price"
-        :underlinedPrice="props.goodsItem.linePrice"></PreviewPrice>
+        :price="goodsItem.price"
+        :underlinedPrice="goodsItem.linePrice"></PreviewPrice>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import PreviewPrice from './PreviewPrice.vue'
-const props = defineProps<{
-  goodsItem: Record<string, never>,
-  goodsConfig: Record<string, never>,
+interface GoodsItem {
+  title: string
+  description: string
+  price: number
+  linePrice: number
+  tag: string
+}
+interface GoodsConfig {
+  priceShow: boolean,
+  linePriceShow: boolean,
+  descriptionShowRow: number,
+  descriptionShow: boolean,
+  titleShowRow: number,
+  titleShow: boolean,
+  goodsTagShow: boolean,
+  cornerStyle: number,
+}
+defineProps<{
+  goodsItem: GoodsItem,
+  goodsConfig?: GoodsConfig,
 }>()
 </script>
 

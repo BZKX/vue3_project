@@ -14,12 +14,17 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-const props = defineProps<{
-  price: 0, // 当前价格 单位：分
-  underlinedPrice:0, // 下划线价格 单位：分
-  priceShow:true, // 是否显示价格
-  linePriceShow:true, // 是否显示划线价格
-}>()
+const props = withDefaults(defineProps<{
+  price?: number, // 当前价格 单位：分
+  underlinedPrice?:number, // 下划线价格 单位：分
+  priceShow?:boolean, // 是否显示价格
+  linePriceShow?:boolean, // 是否显示划线价格
+}>(),{
+  price: 0,
+  underlinedPrice:0,
+  priceShow:true,
+  linePriceShow:true,
+})
 
 // 显示价格处理
 const priceObj = computed(() =>{
